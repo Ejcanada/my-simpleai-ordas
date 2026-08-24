@@ -19,53 +19,53 @@ app.add_middleware(
 movies = [
     {
         "id": 1,
-        "title": "Inception",
-        "genre": "Sci-Fi",
-        "year": 2010,
-        "rating": "8.8/10",
-        "director": "Christopher Nolan",
-        "poster": "",
-        "description": "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea."
+        "title": "Spider-Man: Brand New Day",
+        "genre": "Action / Superhero",
+        "year": 2026,
+        "rating": "8.5/10",
+        "director": "Destin Daniel Cretton",
+        "poster": "spiderman.png",
+        "description": "Peter Parker navigates a fresh start in New York City, balancing college life and street-level heroism under a brand new mantle."
     },
     {
         "id": 2,
-        "title": "The Dark Knight",
-        "genre": "Action",
-        "year": 2008,
-        "rating": "9.0/10",
-        "director": "Christopher Nolan",
-        "poster": "",
-        "description": "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman must accept one of the greatest tests."
+        "title": "The Mandalorian & Grogu",
+        "genre": "Sci-Fi / Adventure",
+        "year": 2026,
+        "rating": "8.7/10",
+        "director": "Jon Favreau",
+        "poster": "grogu.jpg",
+        "description": "The lone bounty hunter Din Djarin and his young foundling Grogu embark on a theatrical galactic journey across the outer rim."
     },
     {
         "id": 3,
-        "title": "Spirited Away",
-        "genre": "Animation",
-        "year": 2001,
-        "rating": "8.6/10",
-        "director": "Hayao Miyazaki",
-        "poster": "",
-        "description": "During her family's move to the suburbs, a 10-year-old girl wanders into a world ruled by gods, witches, and spirits."
+        "title": "The Odyssey",
+        "genre": "Epic / Fantasy",
+        "year": 2026,
+        "rating": "8.9/10",
+        "director": "Christopher Nolan",
+        "poster": "odyssey.jpg",
+        "description": "An epic cinematic adaptation following Odysseus on his treacherous ten-year journey home after the fall of Troy."
     },
     {
         "id": 4,
-        "title": "Interstellar",
-        "genre": "Sci-Fi",
-        "year": 2014,
-        "rating": "8.7/10",
-        "director": "Christopher Nolan",
-        "poster": "",
-        "description": "When Earth becomes uninhabitable, a farmer and ex-NASA pilot is asked to pilot a spacecraft to find a new planet."
+        "title": "Insidious: The Fear the Dark",
+        "genre": "Horror / Mystery",
+        "year": 2025,
+        "rating": "7.8/10",
+        "director": "Patrick Wilson",
+        "poster": "insidious.jpg",
+        "description": "The Lambert family faces another dark chapter as demonic forces cross over from The Further into their reality."
     },
     {
         "id": 5,
-        "title": "Your Name",
-        "genre": "Anime",
-        "year": 2016,
-        "rating": "8.4/10",
-        "director": "Makoto Shinkai",
-        "poster": "",
-        "description": "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?"
+        "title": "Project Hail Mary",
+        "genre": "Sci-Fi / Drama",
+        "year": 2026,
+        "rating": "9.1/10",
+        "director": "Phil Lord & Christopher Miller",
+        "poster": "mary.jpg",
+        "description": "Ryland Grace, a lone astronaut waking up with amnesia on a starship, must use science to save Earth from an extinction-level threat."
     }
 ]
 
