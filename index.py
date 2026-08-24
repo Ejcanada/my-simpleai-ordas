@@ -24,7 +24,7 @@ movies = [
         "year": 2026,
         "rating": "8.5/10",
         "director": "Destin Daniel Cretton",
-        "poster": "spiderman.png",
+        "poster": "https://my-simpleai-ordas.vercel.app/api/spiderman.png",
         "description": "Peter Parker navigates a fresh start in New York City, balancing college life and street-level heroism under a brand new mantle."
     },
     {
@@ -34,7 +34,7 @@ movies = [
         "year": 2026,
         "rating": "8.7/10",
         "director": "Jon Favreau",
-        "poster": "grogu.jpg",
+        "poster": "https://my-simpleai-ordas.vercel.app/api/grogu.jpg",
         "description": "The lone bounty hunter Din Djarin and his young foundling Grogu embark on a theatrical galactic journey across the outer rim."
     },
     {
@@ -44,7 +44,7 @@ movies = [
         "year": 2026,
         "rating": "8.9/10",
         "director": "Christopher Nolan",
-        "poster": "odyssey.jpg",
+        "poster": "https://my-simpleai-ordas.vercel.app/api/odyssey.jpg",
         "description": "An epic cinematic adaptation following Odysseus on his treacherous ten-year journey home after the fall of Troy."
     },
     {
@@ -54,7 +54,7 @@ movies = [
         "year": 2025,
         "rating": "7.8/10",
         "director": "Patrick Wilson",
-        "poster": "insidious.jpg",
+        "poster": "https://my-simpleai-ordas.vercel.app/api/insidious.jpg",
         "description": "The Lambert family faces another dark chapter as demonic forces cross over from The Further into their reality."
     },
     {
@@ -64,7 +64,7 @@ movies = [
         "year": 2026,
         "rating": "9.1/10",
         "director": "Phil Lord & Christopher Miller",
-        "poster": "mary.jpg",
+        "poster": "https://my-simpleai-ordas.vercel.app/api/mary.jpg",
         "description": "Ryland Grace, a lone astronaut waking up with amnesia on a starship, must use science to save Earth from an extinction-level threat."
     }
 ]
