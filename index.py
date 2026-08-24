@@ -94,21 +94,7 @@ def get_cars():
     }
 
 
-# GET ONE CAR
-@app.get("/cars/{car_id}")
-def get_car(car_id: int):
-
-    for car in cars:
-
-        if car["id"] == car_id:
-            return car
-
-    raise HTTPException(
-        status_code=404,
-        detail="Car not found."
-    )
-
-# SEARCH CARS
+# SEARCH CARS <-- FIXED (Moved above /cars/{car_id} so FastAPI matches search correctly)
 @app.get("/cars/search")
 def search_cars( q: str = Query(..., min_length=1)):
     q = q.lower()
@@ -129,3 +115,18 @@ def search_cars( q: str = Query(..., min_length=1)):
         "count": len(results),
         "results": results
     }
+
+
+# GET ONE CAR
+@app.get("/cars/{car_id}")
+def get_car(car_id: int):
+
+    for car in cars:
+
+        if car["id"] == car_id:
+            return car
+
+    raise HTTPException(
+        status_code=404,
+        detail="Car not found."
+    )
