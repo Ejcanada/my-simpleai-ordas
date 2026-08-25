@@ -93,7 +93,7 @@ def get_movies():
     }
 
 
-# SEARCH MOVIES <-- FIXED (Moved above /movies/{movie_id} so FastAPI matches search correctly)
+# SEARCH MOVIES 
 @app.get("/movies/search")
 def search_movies( q: str = Query(..., min_length=1)):
     q = q.lower()
