@@ -73,7 +73,7 @@ landmarks = [
         "visitor_rating": "5.0/5",
         "governing_body": "UNESCO World Heritage",
         "notable_architects": "Inca Civilization",
-        "icon": "/images/machu_picchu.jpg",
+        "icon": "/images/machu.jpg",
         "description": "A 15th-century Inca citadel located in the Eastern Cordillera of southern Peru.",
         "country": "Peru",
         "region": "South America",
