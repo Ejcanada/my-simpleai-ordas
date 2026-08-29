@@ -25,7 +25,7 @@ landmarks = [
         "visitor_rating": "4.9/5",
         "governing_body": "UNESCO World Heritage",
         "notable_architects": "Ifugao Ancestors",
-        "icon": "/banaue.",
+        "icon": "image/banaue.jpg",
         "description": "2,000-year-old terraces carved into the mountains of Ifugao in the Philippines.",
         "country": "Philippines",
         "region": "Southeast Asia",
