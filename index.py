@@ -153,7 +153,7 @@ landmarks = [
         "visitor_rating": "4.9/5",
         "governing_body": "APSARA National Authority",
         "notable_architects": "Khmer Empire",
-        "icon": "/images/angkor.jpg",
+        "icon": "/images/angkor.png",
         "description": "The largest religious structure in the world by land area, located in Cambodia.",
         "country": "Cambodia",
         "region": "Southeast Asia",
