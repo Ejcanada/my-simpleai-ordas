@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# LANDMARK DATASET (20 DATASETS, 14 KEYS EACH)
+# 
 landmarks = [
     {
         "id": 1,
@@ -360,7 +360,7 @@ def get_landmarks():
         "landmarks": landmarks
     }
 
-# SEARCH LANDMARKS (MUST BE BEFORE /{landmark_id})
+# SEARCH LANDMARKS 
 @app.get("/landmarks/search")
 def search_landmarks(q: str = Query(..., min_length=1)):
     q = q.lower()
