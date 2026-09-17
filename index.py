@@ -1,5 +1,8 @@
-from fastapi import FastAPI, HTTPException, Header, Query
+from fastapi import FastAPI, HTTPException, Header, Query, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List, Optional
+from datetime import datetime
 
 app = FastAPI(
     title="World Heritage Sites API",
@@ -14,6 +17,21 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+class Landmark(BaseModel):
+    id: int
+    title: str
+    site_type: str
+    established_year: int
+    visitor_rating: str
+    governing_body: str
+    notable_architects: str
+    icon: str
+    description: str
+    country: str
+    region: str
+    protection_status: str
+    annual_visitors: str
+    entry_fee: str
 
 # 
 landmarks = [
@@ -339,29 +357,56 @@ landmarks = [
     }
 ]
 
-# HOME
+validated_landmarks = [Landmark(**landmark).model_dump() for landmark in landmarks]
+landmarks = validated_landmarks
+
+# ==========================================
+# API KEY AUTHENTICATION
+# ==========================================
+API_KEY = "my_secret_landmark_key" # the password
+
+def verify_api_key(x_api_key: Optional[str] = Header(default=None)):
+    if x_api_key != API_KEY:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid or missing API key."
+        )
+    return True
+ # HOME
+# HOME (Public)
 @app.get("/")
 def home():
     return {
         "message": "Welcome to the World Heritage Sites API!",
         "count": len(landmarks),
         "endpoints": [
+            "/health",
             "/landmarks",
             "/landmarks/{id}",
             "/landmarks/search"
         ]
     }
 
-# GET ALL LANDMARKS
-@app.get("/landmarks")
+# HEALTH CHECK (Public)
+@app.get("/health")
+def health_check():
+    return {
+        "status": "ok",
+        "service": "World Heritage Sites API",
+        "version": "2.0.0",
+        "timestamp": datetime.utcnow().isoformat() + "Z"
+    }
+
+# GET ALL LANDMARKS (Protected)
+@app.get("/landmarks", response_model=dict, dependencies=[Depends(verify_api_key)])
 def get_landmarks():
     return {
         "count": len(landmarks),
         "landmarks": landmarks
     }
 
-# SEARCH LANDMARKS 
-@app.get("/landmarks/search")
+# SEARCH LANDMARKS (Protected)
+@app.get("/landmarks/search", response_model=dict, dependencies=[Depends(verify_api_key)])
 def search_landmarks(q: str = Query(..., min_length=1)):
     q = q.lower()
     results = []
@@ -372,7 +417,11 @@ def search_landmarks(q: str = Query(..., min_length=1)):
             f"{item['site_type']} "
             f"{item['country']} "
             f"{item['region']} "
-            f"{item['governing_body']}"
+            f"{item['governing_body']} "
+            f"{item['established_year']} "
+            f"{item['notable_architects']} "
+            f"{item['protection_status']} "
+            f"{item['description']}"
         ).lower()
 
         if q in searchable_text:
@@ -384,8 +433,8 @@ def search_landmarks(q: str = Query(..., min_length=1)):
         "results": results
     }
 
-# GET ONE LANDMARK
-@app.get("/landmarks/{landmark_id}")
+# GET ONE LANDMARK (Protected)
+@app.get("/landmarks/{landmark_id}", response_model=Landmark, dependencies=[Depends(verify_api_key)])
 def get_landmark(landmark_id: int):
     for item in landmarks:
         if item["id"] == landmark_id:
