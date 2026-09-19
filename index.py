@@ -369,7 +369,7 @@ def verify_api_key(x_api_key: Optional[str] = Header(default=None)):
     if x_api_key != API_KEY:
         raise HTTPException(
             status_code=401,
-            detail="Invalid or missing API key."
+            detail="401 error Invalid, missing API key."
         )
     return True
  # HOME
