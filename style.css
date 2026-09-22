@@ -1,0 +1,344 @@
+* {
+    box-sizing: border-box;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #1a1a1a;
+}
+
+header p {
+    color: #666666;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+main h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+
+.search {
+    display: flex;
+    gap: 15px;
+    max-width: 800px;
+    margin: -70px auto 50px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
+    position: relative;
+    z-index: 10;
+}
+
+.search:focus-within {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.search input {
+    flex: 1;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+    color: #1a1a1a;
+    outline: none;
+}
+
+/* Dark, Premium Buttons */
+button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #1a1a1a;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+button.secondary {
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+button.secondary:hover {
+    background: #e0e0e0;
+}
+
+/* Modern Card Grid */
+.landmark-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.landmark-card {
+    background: #ffffff;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.4s ease backwards;
+    border: 1px solid #f0f0f0;
+}
+
+.landmark-card:hover {
+    transform: translateY(-5px);
+}
+
+.landmark-icon {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+}
+
+.landmark-icon.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    color: #999;
+}
+
+.card-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.landmark-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.landmark-location {
+    color: #777777;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.type-badge {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.landmark-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    margin: 5px 0;
+}
+
+.landmark-card button {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
+
+.landmark-card button:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Utilities */
+.loading-state, .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f0f0f0;
+    border-top: 3px solid #1a1a1a;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 15px;
+}
+
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 2% auto;
+    width: 95%;
+    max-width: 900px;
+    height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    color: #1a1a1a;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.modal-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.modal-hero-text {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    color: white;
+}
+
+.modal-hero-text h2 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 40px;
+}
+
+.modal-item {
+    font-size: 1.1rem;
+    color: #444;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.modal-desc {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    grid-column: span 2;
+}
+
+footer {
+    text-align: center;
+    padding: 60px;
+    color: #999;
+    font-size: 0.9rem;
+    border-top: 1px solid #eaeaea;
+}
